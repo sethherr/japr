@@ -161,7 +161,7 @@ module JAPR
       content = @assets.map(&:content).join("\n")
 
       hash = JAPR::Pipeline.hash(@source, @manifest, @options)
-      @assets = [JAPR::Asset.new(content, "#{@prefix}-#{hash}#{@type}")]
+      @assets = [JAPR::Asset.new(content, "#{@prefix}#{@type}")]
     end
 
     # Compress assets if compressor is defined
