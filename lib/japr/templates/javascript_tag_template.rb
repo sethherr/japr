@@ -8,9 +8,14 @@ module JAPR
     def self.priority
       -1
     end
+    
+    def outpath
+      path = @path.to_s.strip
+      (path.nil? || path.empty? || path == 'nil' || path == '/') ? '' : "/#{@path}"
+    end
 
     def html
-      "<script src='/#{@path}/#{@filename}' type='text/javascript'></script>"
+      "<script src='#{outpath}/#{@filename}' type='text/javascript'></script>"
     end
   end
 end
